@@ -158,3 +158,19 @@ default is `Naur`.
 
 * `/data`: data-container
 
+---
+
+# Montar el docker
+
+```
+docker build -t ugeek/matrix:amd64 .
+```
+
+```
+docker run -v $HOME/docker/matrix/data:/data --rm --user 991:991 -e SERVER_NAME=localhost -e REPORT_STATS=no ugeek/matrix:amd64
+```
+
+```
+docker run -d --user 991:991 -p 8448:8448 -p 8008:8008 -p 3478:3478 -v $HOME/docker/matrix/tmp/data:/data ugeek/matrix:amd64 start
+```
+
